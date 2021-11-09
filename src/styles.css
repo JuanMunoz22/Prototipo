@@ -1,0 +1,180 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none; 
+    text-decoration: none;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+html, body {
+    background-color: #ddd;
+}
+
+.nav{
+    background-color: #731de0;
+}
+
+.nav__h1{
+    color: #fff;
+    font-size: 1.5em;
+    display: inline-block;
+    margin: .8em;
+}
+
+.nav ul{
+    float: right;
+    font-size: 1em;
+    margin: 10px;
+}
+
+.nav li{
+   display: inline-block;
+   padding: 1em;
+   background-color:#3A0F73;
+   border-radius: 20px;
+   width: 10vw;
+   text-align: center;
+}
+
+.nav li a{
+    color: #fff;
+}
+
+.nav li:hover{
+    background-color: #FFF;
+}
+
+.nav li:hover > a{
+    cursor: pointer;
+    color: #3A0F73 ;
+}
+
+.zone-verification{
+    background-color: #d1bdea;
+    margin: 2em auto;
+    width: 80vw;
+    height: 70vh;
+}
+
+.zone-verification h2{
+    color: #8c45e6;
+    text-align: center;
+    font-size: 2em;
+}
+
+.zone-verification p{
+    text-align: center;
+    margin-top: 1vh;
+    color: #8c45e6;
+}
+
+.zone-verification #hash:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.zone-verification__drop-zone{
+    background-color:#d9c9ed;
+    height: 50vh;  
+    width: 60vw;  
+    margin: 0 auto;
+    border: 5px dashed #8c45e6; 
+}
+
+.zone-verification__drop-zone p{
+    color: #8c45e6;
+    font-size: 3em;
+    text-align: center;
+    margin-top: 15vh;
+    margin-bottom: 0.5em;
+}
+
+.zone-verification__hash-zone{
+    background-color: #d9c9ed;
+    height: 50vh;
+    width: 60vw;
+    margin: 0 auto;
+    border: 5px dashed #8c45e6;
+}
+
+.zone-verification .hash-zone__input-txt{
+    width: 30vw;
+    font-size: 1.5em;
+    margin: 20vh 15vw;
+    color: #8c45e6;
+}
+
+.zone-verification .hash-zone__input-submit{
+    background-color: #8c45e6;
+    color: #FFF;
+    width: 40vw;
+    height: 10vh;
+    font-size: 1.2em;
+    border-radius: 20px;
+    border: none;
+    margin-left: 10vw;
+    cursor: pointer;
+}
+
+.zone-verification .hash-zone__input-submit:hover{
+    background-color: #fff;
+    color: #8c45e6;
+}
+
+.disabled{
+    display: none;
+}
+
+.active{
+    display: block;
+}
+
+
+.drop-zone__file {
+    background-color:red;
+    width: 40vw;
+    height: 4vh;
+    border-radius: 20px;
+    border: none;
+    opacity: .4;
+    display: none;
+}
+
+.drop-zone__label{
+    background-color: #8c45e6;
+    color: #fff;
+    width: 40vw;
+    height: 4vh;
+    margin-left: 10vw;
+    border-radius: 20px;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    font-weight: 100;
+    font-size: 1.1em; 
+    line-height: 40px;   
+    transition: all 1s;
+}
+
+.drop-zone__h3{
+    text-align: center;
+    margin: 5vh;
+    color: #FFF;
+}
+
+.drop-zone__label:hover{
+    background-color: #FFF;
+    color: #8c45e6;
+}
+
+.footer{
+    background-color: #731de0;
+    width: 100vw;
+    margin-top: 17vh;
+}
+
+.footer p{
+    text-align: right;
+    color: #fff;
+    margin-right: 3em;
+}
