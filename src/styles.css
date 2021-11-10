@@ -167,6 +167,92 @@ html, body {
     color: #8c45e6;
 }
 
+.protection-zone__form h3{
+    text-align: center;
+    color: #8c45e6;
+}
+
+.protection-zone__file{
+    margin: 20px auto;
+    padding: 20px;
+    display: block;
+}
+
+.protection-zone__submit{
+    margin: 0 auto;
+    display: block;
+    width: 40vw;
+    height: 4vh;
+    background-color: #8c45e6;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 1.1em;
+}
+
+.data-protect h3{
+    color: #8c45e6;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.data-protect p{
+    display: inline-block;
+}
+
+.data-protect span{
+    font-weight: 700;
+    color: #8c45e6;
+    padding: 5px;
+}
+
+.data-protect__block{
+    width: 70vw;
+    height: 55vh;
+    margin: 0 auto;
+    border: 0.2em dashed #8c45e6;
+}
+
+.block__input{
+    background-color: #8c45e6;
+    color: #FFF;
+    width: 40vw;
+    height: 4vh;
+    border-radius: 10px;
+    border: none;
+    margin: 0 auto;
+    display: block;
+    margin-top: 100px;
+}
+
+.verify-block{
+
+}
+
+.verify-block h3{
+    text-align: center;
+    color: #000;
+    padding: 20px; 
+    font-weight: 900;
+}
+
+.verify-block i{
+    color: green;
+    font-size: 2em;
+}
+
+.verify-block span{
+    font-weight: 900;
+    color: #000;
+    padding: 5px;
+}
+
+.verify-block p{
+    color: #fff;
+    background-color: #008000;
+}
+
 .footer{
     background-color: #731de0;
     width: 100vw;
@@ -178,3 +264,134 @@ html, body {
     color: #fff;
     margin-right: 3em;
 }
+
+@media only screen and (max-width: 500px){
+
+    .nav li{
+       border-radius: 10px;
+       width: 15vw;
+    }
+    
+    .zone-verification{
+        width: 90vw;
+        height: 65vh;
+    }
+
+    .zone-verification h2{
+        margin: 5px;
+    }
+
+    .zone-verification__drop-zone{
+        height: 20vh;  
+    }
+
+    .zone-verification__drop-zone p{
+        display: none;
+    }
+
+    .zone-verification p{
+        margin-top: 5vh;
+    }
+
+    .zone-verification__hash-zone{
+        margin: 0 auto;
+        height: 10vh;
+        border: none;
+        background-color: #d1bdea;
+    }
+
+    .zone-verification .hash-zone__input-txt{
+        width: 60vw;
+        font-size: 1em;
+        margin: 0 auto;
+    }
+
+    .zone-verification .hash-zone__input-submit{
+        font-size: 0.9em;
+        border-radius: 10px;
+        margin-top: 50px;
+    }
+
+    .drop-zone__label{
+        margin-top: 50px;
+        font-size: 1em;
+        line-height: 30px;
+    }
+
+    .protection-zone__file{
+        width: 70vw;
+        margin-top: 0;
+    }
+
+    .protection-zone__submit{
+        width: 60vw;
+        height: 8vh;
+        border-radius: 10px;
+    }
+
+    .data-protect h3{
+        padding: 20px;
+        margin-top: 0;
+        font-size: 1em;
+    }
+
+    .data-protect span{
+        font-size: .8em;
+    }
+
+    .data-protect__block{
+        height: 60vh;
+    }
+
+    /*Falta Modificar*/
+.block__input{
+    background-color: #8c45e6;
+    color: #FFF;
+    width: 40vw;
+    height: 4vh;
+    border-radius: 10px;
+    border: none;
+    margin: 0 auto;
+    display: block;
+    margin-top: 100px;
+}
+
+.verify-block{
+
+}
+
+.verify-block h3{
+    text-align: center;
+    color: #000;
+    padding: 20px; 
+    font-weight: 900;
+}
+
+.verify-block i{
+    color: green;
+    font-size: 2em;
+}
+
+.verify-block span{
+    font-weight: 900;
+    color: #000;
+    padding: 5px;
+}
+
+.verify-block p{
+    color: #fff;
+    background-color: #008000;
+}
+
+.footer{
+    background-color: #731de0;
+    width: 100vw;
+    margin-top: 17vh;
+}
+
+.footer p{
+    text-align: right;
+    color: #fff;
+    margin-right: 3em;
+}
+} 
