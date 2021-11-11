@@ -21,6 +21,10 @@ html, body {
     margin: .8em;
 }
 
+.nav__h1 a:visited{
+    color: #FFF;
+}
+
 .nav ul{
     float: right;
     font-size: 1em;
@@ -253,6 +257,62 @@ html, body {
     background-color: #008000;
 }
 
+.zone-blockchain{
+    background-color: #d9c9ed;
+    margin: 0 auto;
+    width: 80vw;
+    height: 80vh;
+}
+
+.zone-blockchain input{
+    display: inline;
+    background-color: #8c45e6;
+    color:#FFF;
+    width: 30vw;
+    height: 10vh;
+    margin: 0 auto;
+    border: none;
+    border-radius: 5px;
+    font-size: 2em;
+    transition: all 1s;
+}
+
+.zone-blockchain input:hover{
+    background-color: #FFF;
+    color: #8c45e6;
+}
+
+.zone-blockchain h4{
+    color: #8c45e6;
+    font-size: 2em;
+    text-align: center;
+    margin-top: 0px;
+    padding: 15px;
+}
+
+.zone-blockchain__bloques{
+    height: 60vh;
+    width: 60vw;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    border: 5px dashed #8c45e6;
+}
+
+.zone-blockchain__bloques li{
+    background-color: #FFF;
+    display: block;
+    font-size: 1em;
+    color: #8c45e6;
+    height: 5vh;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    cursor: copy;
+}
+
+.zone-blockchain__bloques li:hover{
+    background-color: #ccc;
+}
+
 .footer{
     background-color: #731de0;
     width: 100vw;
@@ -329,6 +389,10 @@ html, body {
         border-radius: 10px;
     }
 
+    .data-protect{
+        height: 80vh;
+    }
+
     .data-protect h3{
         padding: 20px;
         margin-top: 0;
@@ -336,62 +400,66 @@ html, body {
     }
 
     .data-protect span{
-        font-size: .8em;
+        font-size: .9em;
+    }
+
+    .data-protect p{
+        font-size: .9em;
+        margin: 0;
+        margin-left: 5px;
+        margin-bottom: 10px;
+        text-align: left;
     }
 
     .data-protect__block{
-        height: 60vh;
+        height: 50vh;
+        width: 85vw;
+        overflow: scroll;
     }
 
-    /*Falta Modificar*/
-.block__input{
-    background-color: #8c45e6;
-    color: #FFF;
-    width: 40vw;
-    height: 4vh;
-    border-radius: 10px;
-    border: none;
-    margin: 0 auto;
-    display: block;
-    margin-top: 100px;
-}
+    .block__input{
+        width: 70vw;
+        margin-top: 120px;
+    }
 
-.verify-block{
+    .verify-block h3{
+        padding: 5px; 
+    }
 
-}
+    .verify-block i{
+        display: none;
+    }
 
-.verify-block h3{
-    text-align: center;
-    color: #000;
-    padding: 20px; 
-    font-weight: 900;
-}
+    .verify-block span{
+        padding: 5px;
+    }
 
-.verify-block i{
-    color: green;
-    font-size: 2em;
-}
+    .verify-block p{
+        color: #fff;
+        background-color: #008000;
+        margin-top: 5px;
+        overflow: hidden;
+    }
 
-.verify-block span{
-    font-weight: 900;
-    color: #000;
-    padding: 5px;
-}
+    .zone-blockchain{
+        height: 90vh;
+    }
+    
+    .zone-blockchain input{
+        font-size: .8em;
+    }
+    
+    .zone-blockchain__bloques li{
+        height: 8vh;
+    }
+    
+    .footer{
+        margin-top: 10vh;
+    }
 
-.verify-block p{
-    color: #fff;
-    background-color: #008000;
-}
-
-.footer{
-    background-color: #731de0;
-    width: 100vw;
-    margin-top: 17vh;
-}
-
-.footer p{
-    text-align: right;
-    color: #fff;
-    margin-right: 3em;
-}
+    .footer p{
+        text-align: center;
+        font-size: .9em;
+        margin: 0 auto;
+    }
 } 

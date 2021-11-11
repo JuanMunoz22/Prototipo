@@ -1,4 +1,5 @@
-import { SHA256 } from "crypto-js";
+import { SHA256, SHA3 } from "crypto-js";
+import Swal from "sweetalert2";
 
 //Referencias HTML
 //const btnCrear = document.querySelector('#crear-bloque');
@@ -10,24 +11,16 @@ const pHash = document.querySelector('#hash');
 const zoneVerification = document.querySelector('.zone-verification__drop-zone'); 
 const divArchives = document.querySelector('#archives');
 
+const firstDiv = document.querySelector('#first');
+const btnBlockchain = document.querySelector('#check-blockchain');
 
-export const crearBloque = () => {
-    console.warn(SHA256('Blockchain').toString());
+const btn = document.querySelector('#document');
+const btnActualizarBloques = document.querySelector('#actualizar')
+const divBloques = document.querySelector('#bloques');
+
+export const crearBloque = () => {0
     seleccionArchivos();
 }
-
-const seleccionArchivos = () => {
-    if(btnUpload.files[0] != undefined){
-        const crearHTML = `
-            <h3 class='drop-zone__h3'>Nombre de documento: ${btnUpload.files[0].name}</h3>
-        `;
-        divArchives.innerHTML = crearHTML;
-        console.log(btnUpload.files[0]);
-    }else{
-        console.warn('Aun no existe');
-    }
-}
-
 
 const verificationZone = () => {
   //  console.warn('Verificar Zona');
@@ -84,10 +77,18 @@ const verificarHash = () => {
 
                 divPrincipal.innerHTML = html;
             }else{
-                alert('No existe el hash indicado');
+                Swal.fire(
+                    'No existe el hash indicado',
+                    'Porfavor verifica tu hash',
+                    'error'
+                )
             }
         }else{
-            alert('Campos vacios');
+            Swal.fire(
+                'Campo de hash vacio',
+                'Ingresa un hash para verifircalo',
+                'error'
+            )
         }
         //let pro = localStorage.getItem(hash);
         
@@ -96,8 +97,19 @@ const verificarHash = () => {
 }
 
 const verificarDocumento = () => {
-    console.warn('Verificar Documento');
-    setTimeout(seleccionArchivos, 5000);
+    const file = document.querySelector('#label');
+    
+    if(file[0] != undefined){
+        console.log(file[0]);
+    }else{
+        Swal.fire(
+            'Funcion no disponible en prototipo',
+            '',
+            'error'
+        )       
+    }
+    
+    console.warn(file[0]);
 }
 
 const ingresar = () => {
@@ -138,7 +150,7 @@ const ingresar = () => {
                     <br>
                     <span>Hash anterior: </span><p>0</p>
                     <br>
-                    <span>Hash Actual: </span><p>${SHA256(fileProtect.files[0]).toString()}</p>
+                    <span>Hash Actual: </span><p>${SHA256(fileProtect.files[0].lastModifiedDate.toString())}</p>
                     <br>
                     <br>
                     <input class='block__input' type='button' value='Descargar documento'> 
@@ -146,23 +158,40 @@ const ingresar = () => {
             </div>
             `;
             
-            divPrincipal.innerHTML = datosProteccion;
-
+            
             let object = {
                 'name': fileProtect.files[0].name,
                 'lastModifiedDate': fileProtect.files[0].lastModifiedDate,
                 'protectionDate' : fecha(),
                 'lastHash' : 0,
-                'hash' : SHA256(fileProtect.files[0]).toString()
+                'hash' : SHA256(fileProtect.files[0].lastModifiedDate.toString())
             };
             
-            localStorage.setItem(SHA256(fileProtect.files[0]).toString(), JSON.stringify(object));
+            
+            
+            if(localStorage.getItem(SHA256(fileProtect.files[0].lastModifiedDate.toString()))){
+                Swal.fire(
+                    'Este documento ya se encuentra registrado',
+                    'Limpia tu cadena de bloques para volverlo a registrar o verificalo con el hash',
+                    'warning'
+                )
+            }else{
+                localStorage.setItem(SHA256(fileProtect.files[0].lastModifiedDate.toString()), JSON.stringify(object));
+                divPrincipal.innerHTML = datosProteccion;
+            }
+
+
+            console.log(fileProtect.files[0].lastModifiedDate.toString());
 
 
 
         }else{
-            alert('Porfavor ingresa un documento');
             console.log('Actualmente no existe documento');
+            Swal.fire(
+                'Por favor ingresa un documento',
+                '',
+                'error'
+            )
         }
 
     }
@@ -186,22 +215,34 @@ const fecha = () => {
     return today;
 }
 
+const limpiarBloques = () => {
+    localStorage.clear();
+}
 
+const actualizarBloques = () => {
 
+    divBloques.replaceChildren();
+    let insertHtml = ``;
+    let li = '';
+
+    for (let i = 0; i <= localStorage.length-1; i++) {
+        let clave = localStorage.key(i);
+        
+        insertHtml = `Bloque ${clave}`;
+        
+        li = document.createElement('li');
+        li.appendChild(document.createTextNode(insertHtml));
+        divBloques.appendChild(li);
+    }
+
+}
 
 //Eventos
+btn.onclick = verificarDocumento;
 btnIngresar.onclick = ingresar;
-
-btnProtect.onclick = verificarDocumento;
-
-btnUpload.onclick = verificarDocumento;
-
-
-
-zoneVerification.onmouseover = verificationZone;
-
-
 pHash.onclick = verificarHash;
+btnBlockchain.onclick = limpiarBloques;
+btnActualizarBloques.onclick = actualizarBloques;
 
 
 
