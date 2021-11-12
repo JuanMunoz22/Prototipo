@@ -93,6 +93,19 @@ html, body {
     margin-bottom: 0.5em;
 }
 
+.zone-verification__drop-zone #document{
+    margin: 0 auto;
+    display: block;
+    margin-top: 200px;
+    color:#FFF;
+    background-color: #8c45e6;
+    border: none;
+    width: 40vw;
+    height: 10vh;
+    font-size: 2em;
+    border-radius: 5px;
+}
+
 .zone-verification__hash-zone{
     background-color: #d9c9ed;
     height: 50vh;
@@ -347,6 +360,11 @@ html, body {
 
     .zone-verification__drop-zone p{
         display: none;
+    }
+
+    .zone-verification__drop-zone #document{
+        margin-top: 150px;
+        font-size: 1em;
     }
 
     .zone-verification p{

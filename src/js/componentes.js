@@ -1,4 +1,4 @@
-import { SHA256, SHA3 } from "crypto-js";
+import { SHA256} from "crypto-js";
 import Swal from "sweetalert2";
 
 //Referencias HTML
@@ -20,10 +20,6 @@ const divBloques = document.querySelector('#bloques');
 
 export const crearBloque = () => {0
     seleccionArchivos();
-}
-
-const verificationZone = () => {
-  //  console.warn('Verificar Zona');
 }
 
 const verificarHash = () => {
@@ -108,8 +104,6 @@ const verificarDocumento = () => {
             'error'
         )       
     }
-    
-    console.warn(file[0]);
 }
 
 const ingresar = () => {
@@ -168,8 +162,10 @@ const ingresar = () => {
             };
             
             
+            console.log(fileProtect.files[0]);
             
             if(localStorage.getItem(SHA256(fileProtect.files[0].lastModifiedDate.toString()))){
+                
                 Swal.fire(
                     'Este documento ya se encuentra registrado',
                     'Limpia tu cadena de bloques para volverlo a registrar o verificalo con el hash',
@@ -178,6 +174,7 @@ const ingresar = () => {
             }else{
                 localStorage.setItem(SHA256(fileProtect.files[0].lastModifiedDate.toString()), JSON.stringify(object));
                 divPrincipal.innerHTML = datosProteccion;
+                actualizarBloques();
             }
 
 
@@ -219,7 +216,7 @@ const limpiarBloques = () => {
     localStorage.clear();
 }
 
-const actualizarBloques = () => {
+export const actualizarBloques = () => {
 
     divBloques.replaceChildren();
     let insertHtml = ``;
