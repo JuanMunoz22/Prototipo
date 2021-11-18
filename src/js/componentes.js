@@ -1,8 +1,8 @@
+//Importacion de librerias
 import { SHA256} from "crypto-js";
 import Swal from "sweetalert2";
 
 //Referencias HTML
-//const btnCrear = document.querySelector('#crear-bloque');
 const btnProtect = document.querySelector('#protect');
 const divPrincipal = document.querySelector('.zone-verification');
 const btnIngresar = document.querySelector('#ingresar');
@@ -18,10 +18,7 @@ const btn = document.querySelector('#document');
 const btnActualizarBloques = document.querySelector('#actualizar')
 const divBloques = document.querySelector('#bloques');
 
-export const crearBloque = () => {0
-    seleccionArchivos();
-}
-
+//Funcion para verificar Hash SHA256
 const verificarHash = () => {
     const crearHTML = `
         <br/>
@@ -44,12 +41,13 @@ const verificarHash = () => {
 
     const btnHash = document.querySelector('#hash');
     const hash = document.querySelector('#hash-content');
-    
+
     btnHash.onclick = () => {
         if(hash.value != null && hash.value != ''){
             let local = localStorage.getItem(hash.value);
             if(local){
                 let item = JSON.parse(local);
+                console.log(item);
 
                 const html = `
                     <div class='verify-block'>
@@ -63,11 +61,6 @@ const verificarHash = () => {
                         <br>
                         <span>Hash Anterior: </span><p>0</p>
                         <br>
-                        <span>Hash Actual: </span><p>${item.hash}</p>
-                        <br>
-                        <span>Preview de documento</span>
-
-                        <i class="fas fa-check"></i>
                     </div>
                 `;
 
@@ -77,21 +70,20 @@ const verificarHash = () => {
                     'No existe el hash indicado',
                     'Porfavor verifica tu hash',
                     'error'
-                )
+                );
             }
         }else{
             Swal.fire(
                 'Campo de hash vacio',
                 'Ingresa un hash para verifircalo',
                 'error'
-            )
+            );
         }
-        //let pro = localStorage.getItem(hash);
-        
-        
     }
 }
 
+//Funcion para verificar documentos
+//EN prototipo no se encontrara disponible
 const verificarDocumento = () => {
     const file = document.querySelector('#label');
     
@@ -102,98 +94,100 @@ const verificarDocumento = () => {
             'Funcion no disponible en prototipo',
             '',
             'error'
-        )       
+            )       
+        }
     }
-}
-
-const ingresar = () => {
-    const crearHTML = `
+    
+    //Proteger documentos con blockchain SHA256
+    const ingresar = () => {
+        const crearHTML = `
         <br/>
         <h2>Protege la autenticidad de tus documentos</h2>
         <br/>
-
+        
         <div class='protection-zone'>
-            <form class='protection-zone__form'>
-                <br/>
-                <input id='protect-file' class='protection-zone__file' type='file' accept='.doc,.pdf'/>
-                <input id='protect' class='protection-zone__submit' type='submit' value='Proteger Documento'/>
-            </form>
+        <form class='protection-zone__form'>
+        <br/>
+        <input id='protect-file' class='protection-zone__file' type='file' accept='.doc,.pdf'/>
+        <input id='protect' class='protection-zone__submit' type='submit' value='Proteger Documento'/>
+        </form>
         </div>
-    `;
-
-  
-
-    divPrincipal.innerHTML = crearHTML;
-    const btnProtect = document.querySelector('#protect');
-    const fileProtect = document.querySelector('#protect-file');
-
-    btnProtect.onclick = () => {
-        if(fileProtect.files[0] != undefined){
-            console.log(fileProtect.files[0]);
-
-            const datosProteccion = `
-            <div class='data-protect'>
+        `;
+        
+        
+        
+        divPrincipal.innerHTML = crearHTML;
+        const btnProtect = document.querySelector('#protect');
+        const fileProtect = document.querySelector('#protect-file');
+        
+        btnProtect.onclick = () => {
+            if(fileProtect.files[0] != undefined){
+                console.log(fileProtect.files[0]);
+                
+                const datosProteccion = `
+                <div class='data-protect'>
                 <br>
                 <h3>Proteccion realizada correctamente</h3>
                 <div class='data-protect__block'>
-                    <span>Nombre de documento: </span><p>${fileProtect.files[0].name}</p>
-                    <br>
-                    <span>Fecha de ultima modificacion:</span><p>${fileProtect.files[0].lastModifiedDate}</p>
-                    <br>
-                    <span>Fecha de proteccion: </span><p>${fecha()}</p>
-                    <br>
-                    <span>Hash anterior: </span><p>0</p>
-                    <br>
-                    <span>Hash Actual: </span><p>${SHA256(fileProtect.files[0].lastModifiedDate.toString())}</p>
-                    <br>
-                    <br>
-                    <input class='block__input' type='button' value='Descargar documento'> 
+                <span>Nombre de documento: </span><p>${fileProtect.files[0].name}</p>
+                <br>
+                <span>Fecha de ultima modificacion:</span><p>${fileProtect.files[0].lastModifiedDate}</p>
+                <br>
+                <span>Fecha de proteccion: </span><p>${fecha()}</p>
+                <br>
+                <span>Hash anterior: </span><p>0</p>
+                <br>
+                <li id='li-hash'><span>Hash Actual: </span><p>${SHA256(fileProtect.files[0].lastModifiedDate.toString())}</p></li>
+                <br>
+                <br>
+                <input id='descargar-documento' class='block__input' type='button' value='Descargar documento'> 
                 </div>
-            </div>
-            `;
-            
-            
-            let object = {
-                'name': fileProtect.files[0].name,
-                'lastModifiedDate': fileProtect.files[0].lastModifiedDate,
-                'protectionDate' : fecha(),
-                'lastHash' : 0,
-                'hash' : SHA256(fileProtect.files[0].lastModifiedDate.toString())
-            };
-            
-            
-            console.log(fileProtect.files[0]);
-            
-            if(localStorage.getItem(SHA256(fileProtect.files[0].lastModifiedDate.toString()))){
+                </div>
+                `;
                 
-                Swal.fire(
-                    'Este documento ya se encuentra registrado',
-                    'Limpia tu cadena de bloques para volverlo a registrar o verificalo con el hash',
-                    'warning'
-                )
-            }else{
-                localStorage.setItem(SHA256(fileProtect.files[0].lastModifiedDate.toString()), JSON.stringify(object));
-                divPrincipal.innerHTML = datosProteccion;
-                actualizarBloques();
-            }
-
-
-            console.log(fileProtect.files[0].lastModifiedDate.toString());
-
-
-
+                
+                let object = {
+                    'name': fileProtect.files[0].name,
+                    'lastModifiedDate': fileProtect.files[0].lastModifiedDate,
+                    'protectionDate' : fecha(),
+                    'lastHash' : 0,
+                    'hash' : SHA256(fileProtect.files[0].lastModifiedDate.toString())
+                };
+                
+                
+                if(localStorage.getItem(SHA256(fileProtect.files[0].lastModifiedDate.toString()))){
+                    
+                    Swal.fire(
+                        'Este documento ya se encuentra registrado',
+                        'Limpia tu cadena de bloques para volverlo a registrar o verificalo con el hash',
+                        'warning'
+                        )
+                    }else{
+                        localStorage.setItem(SHA256(fileProtect.files[0].lastModifiedDate.toString()), JSON.stringify(object));
+                        divPrincipal.innerHTML = datosProteccion;
+                        actualizarBloques();
+                    }
+                    
+                    const download = document.querySelector('#descargar-documento');
+                    
+                    download.onclick = () => {
+                        Swal.fire(
+                            'No es posible descargar documentos en prototipo',
+                            '',
+                            'error'
+                        )
+                    }                       
         }else{
-            console.log('Actualmente no existe documento');
             Swal.fire(
                 'Por favor ingresa un documento',
                 '',
                 'error'
             )
         }
-
     }
 }
 
+//Funcion para obtener fecha actual y darle un orden especifico
 const fecha = () => {
     let today = new Date();
     let dd = today.getDate();
@@ -212,10 +206,13 @@ const fecha = () => {
     return today;
 }
 
+//Eliminar bloques alojados en localStorage
 const limpiarBloques = () => {
     localStorage.clear();
+    actualizarBloques();
 }
 
+//Actualizar bloques alojados en localStorage
 export const actualizarBloques = () => {
 
     divBloques.replaceChildren();
@@ -231,8 +228,26 @@ export const actualizarBloques = () => {
         li.appendChild(document.createTextNode(insertHtml));
         divBloques.appendChild(li);
     }
-
 }
+
+//Funcion para arrastrar documentos a la pagina web y reconocerlos
+const blockDrop = document.querySelector('#drop');
+
+document.addEventListener('dragover', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+}, false);
+
+document.addEventListener('drop', function(e){
+   e.preventDefault();
+   e.stopPropagation(); 
+   Swal.fire(
+    'No es posible cargar documentos en prototipo',
+    '',
+    'error'
+)
+
+}, false);
 
 //Eventos
 btn.onclick = verificarDocumento;

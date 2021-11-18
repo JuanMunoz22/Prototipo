@@ -96,7 +96,7 @@ html, body {
 .zone-verification__drop-zone #document{
     margin: 0 auto;
     display: block;
-    margin-top: 200px;
+    margin-top: 20px; 
     color:#FFF;
     background-color: #8c45e6;
     border: none;
@@ -231,6 +231,10 @@ html, body {
     border: 0.2em dashed #8c45e6;
 }
 
+.data-protect__block li{
+    overflow: scroll;
+}
+
 .block__input{
     background-color: #8c45e6;
     color: #FFF;
@@ -316,15 +320,17 @@ html, body {
     display: block;
     font-size: 1em;
     color: #8c45e6;
-    height: 5vh;
+    height: 6vh;
     border: 1px solid #ccc;
-    overflow: hidden;
+    overflow: scroll;
     cursor: copy;
 }
 
 .zone-blockchain__bloques li:hover{
     background-color: #ccc;
 }
+
+
 
 .footer{
     background-color: #731de0;
@@ -363,7 +369,7 @@ html, body {
     }
 
     .zone-verification__drop-zone #document{
-        margin-top: 150px;
+        margin-top: 200px;
         font-size: 1em;
     }
 

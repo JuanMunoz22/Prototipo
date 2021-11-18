@@ -1,5 +1,5 @@
 import './styles.css';
-import { actualizarBloques, crearBloque } from './js/componentes';
+import { actualizarBloques} from './js/componentes';
 
 
 actualizarBloques();
