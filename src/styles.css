@@ -7,11 +7,11 @@
 }
 
 html, body {
-    background-color: #ddd;
+    background-color: #444444;
 }
 
 .nav{
-    background-color: #731de0;
+    background-color: #31a9e1;
 }
 
 .nav__h1{
@@ -34,7 +34,7 @@ html, body {
 .nav li{
    display: inline-block;
    padding: 1em;
-   background-color:#3A0F73;
+   background-color:#37517e;
    border-radius: 20px;
    width: 10vw;
    text-align: center;
@@ -54,14 +54,15 @@ html, body {
 }
 
 .zone-verification{
-    background-color: #d1bdea;
+    background-color: #37517e;
     margin: 2em auto;
     width: 80vw;
     height: 70vh;
+    border: 5px solid rgba(50, 50, 50, .2);
 }
 
 .zone-verification h2{
-    color: #8c45e6;
+    color: #FFF;
     text-align: center;
     font-size: 2em;
 }
@@ -69,7 +70,7 @@ html, body {
 .zone-verification p{
     text-align: center;
     margin-top: 1vh;
-    color: #8c45e6;
+    color: #FFF;
 }
 
 .zone-verification #hash:hover{
@@ -78,15 +79,15 @@ html, body {
 }
 
 .zone-verification__drop-zone{
-    background-color:#d9c9ed;
+    background-color:#37517e;
     height: 50vh;  
     width: 60vw;  
     margin: 0 auto;
-    border: 5px dashed #8c45e6; 
+    border: 5px dashed #31a9e1; 
 }
 
 .zone-verification__drop-zone p{
-    color: #8c45e6;
+    color: #FFF;
     font-size: 3em;
     text-align: center;
     margin-top: 15vh;
@@ -98,7 +99,7 @@ html, body {
     display: block;
     margin-top: 20px; 
     color:#FFF;
-    background-color: #8c45e6;
+    background-color: #31a9e1;
     border: none;
     width: 40vw;
     height: 10vh;
@@ -107,22 +108,22 @@ html, body {
 }
 
 .zone-verification__hash-zone{
-    background-color: #d9c9ed;
+    background-color: #37517e;
     height: 50vh;
     width: 60vw;
     margin: 0 auto;
-    border: 5px dashed #8c45e6;
+    border: 5px dashed #31a9e1;
 }
 
 .zone-verification .hash-zone__input-txt{
     width: 30vw;
     font-size: 1.5em;
     margin: 20vh 15vw;
-    color: #8c45e6;
+    color: #31a9e1;
 }
 
 .zone-verification .hash-zone__input-submit{
-    background-color: #8c45e6;
+    background-color: #31a9e1;
     color: #FFF;
     width: 40vw;
     height: 10vh;
@@ -135,7 +136,7 @@ html, body {
 
 .zone-verification .hash-zone__input-submit:hover{
     background-color: #fff;
-    color: #8c45e6;
+    color: #31a9e1;
 }
 
 .disabled{
@@ -158,7 +159,7 @@ html, body {
 }
 
 .drop-zone__label{
-    background-color: #8c45e6;
+    background-color: #31a9e1;
     color: #fff;
     width: 40vw;
     height: 4vh;
@@ -181,12 +182,12 @@ html, body {
 
 .drop-zone__label:hover{
     background-color: #FFF;
-    color: #8c45e6;
+    color: #31a9e1;
 }
 
 .protection-zone__form h3{
     text-align: center;
-    color: #8c45e6;
+    color: #FFF;
 }
 
 .protection-zone__file{
@@ -200,7 +201,7 @@ html, body {
     display: block;
     width: 40vw;
     height: 4vh;
-    background-color: #8c45e6;
+    background-color: #31a9e1;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -209,7 +210,7 @@ html, body {
 }
 
 .data-protect h3{
-    color: #8c45e6;
+    color: #FFF;
     text-align: center;
     margin-top: 20px;
 }
@@ -220,7 +221,7 @@ html, body {
 
 .data-protect span{
     font-weight: 700;
-    color: #8c45e6;
+    color: #FFF;
     padding: 5px;
 }
 
@@ -228,7 +229,7 @@ html, body {
     width: 70vw;
     height: 55vh;
     margin: 0 auto;
-    border: 0.2em dashed #8c45e6;
+    border: 0.2em dashed #31a9e1;
 }
 
 .data-protect__block li{
@@ -236,7 +237,7 @@ html, body {
 }
 
 .block__input{
-    background-color: #8c45e6;
+    background-color: #31a9e1;
     color: #FFF;
     width: 40vw;
     height: 4vh;
@@ -253,7 +254,7 @@ html, body {
 
 .verify-block h3{
     text-align: center;
-    color: #000;
+    color: #FFF;
     padding: 20px; 
     font-weight: 900;
 }
@@ -265,7 +266,7 @@ html, body {
 
 .verify-block span{
     font-weight: 900;
-    color: #000;
+    color: #FFF;
     padding: 5px;
 }
 
@@ -275,7 +276,7 @@ html, body {
 }
 
 .zone-blockchain{
-    background-color: #d9c9ed;
+    background-color: #37517e;
     margin: 0 auto;
     width: 80vw;
     height: 80vh;
@@ -283,7 +284,7 @@ html, body {
 
 .zone-blockchain input{
     display: inline;
-    background-color: #8c45e6;
+    background-color: #31a9e1;
     color:#FFF;
     width: 30vw;
     height: 10vh;
@@ -296,11 +297,11 @@ html, body {
 
 .zone-blockchain input:hover{
     background-color: #FFF;
-    color: #8c45e6;
+    color: #31a9e1;
 }
 
 .zone-blockchain h4{
-    color: #8c45e6;
+    color: #FFF;
     font-size: 2em;
     text-align: center;
     margin-top: 0px;
@@ -312,14 +313,14 @@ html, body {
     width: 60vw;
     margin: 0 auto;
     margin-bottom: 15px;
-    border: 5px dashed #8c45e6;
+    border: 5px dashed #31a9e1;
 }
 
 .zone-blockchain__bloques li{
-    background-color: #FFF;
+    background-color: #37517e;
     display: block;
     font-size: 1em;
-    color: #8c45e6;
+    color: #FFF;
     height: 6vh;
     border: 1px solid #ccc;
     overflow: scroll;
@@ -327,13 +328,14 @@ html, body {
 }
 
 .zone-blockchain__bloques li:hover{
-    background-color: #ccc;
+    background-color: #31a9e1;
+    opacity: .6;
 }
 
 
 
 .footer{
-    background-color: #731de0;
+    background-color: #31a9e1;
     width: 100vw;
     margin-top: 17vh;
 }
@@ -381,7 +383,7 @@ html, body {
         margin: 0 auto;
         height: 10vh;
         border: none;
-        background-color: #d1bdea;
+        background-color: #37517e;
     }
 
     .zone-verification .hash-zone__input-txt{
